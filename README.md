@@ -15,8 +15,4 @@ dsa-exp/
 ├── ex1p2/            # 实验1 题目2
 ├── ...               # 其他实验题目目录
 ├── .gitignore        # Git 忽略配置文件
-└── dsa-exp.sln       # Visual Studio 解决方案文件# 数据结构与算法课程作业
-
-本仓库为数据结构与算法课程的实验作业项目，所有核心源码均以 C/C++ 实现。
-
----
+└── dsa-exp.sln       # Visual Studio 解决方案文件
