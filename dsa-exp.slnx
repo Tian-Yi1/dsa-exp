@@ -1,0 +1,22 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="dsa/dsa.vcxproj" Id="a6c52e88-7452-4264-bbb5-6f99302e84d4" />
+  <Project Path="ex1p1/ex1p1-1.vcxproj" Id="5f2a1e96-8949-4b40-8c3f-0de40cebf874" />
+  <Project Path="ex1p2/ex1p2-2.vcxproj" Id="262af747-d41e-440b-9470-6d0c91fee58d" />
+  <Project Path="ex1p3/ex1p3.vcxproj" Id="9c7c1026-3482-4a88-bdeb-671282b1ec76" />
+  <Project Path="ex1p5/ex1p5.vcxproj" Id="50156032-1dfd-4cba-8ded-2ead14abbe48" />
+  <Project Path="ex1p6/ex1p6.vcxproj" Id="4556a8e5-6e62-425d-8f08-4bb105fdd58f" />
+  <Project Path="ex1p7/ex1p7.vcxproj" Id="4ae57fc5-1a51-43e2-9166-bfc232ea27e8" />
+  <Project Path="ex2p2/ex2p2.vcxproj" Id="c854ec9e-7a1a-4eab-9f1a-29668db034c6" />
+  <Project Path="ex2p3/ex2p3.vcxproj" Id="3b00f067-ebd7-4b67-a5e3-3d4074d82558" />
+  <Project Path="ex2p4/ex2p4.vcxproj" Id="740f9e2e-e1e9-4633-845c-fcc78fa89a89" />
+  <Project Path="ex2p5/ex2p5.vcxproj" Id="da8d177e-0cc1-44ff-a054-541cfb9a480c" />
+  <Project Path="ex2p6/ex2p6.vcxproj" Id="6de43c46-6af3-4836-a345-65744a93c853" />
+  <Project Path="ex3p1/ex3p1.vcxproj" Id="5a01b943-5683-4058-ae18-41d1e9078d72" />
+  <Project Path="ex3p2/ex3p2.vcxproj" Id="6e387fb3-0155-4c1d-8b55-31b3fc990cf9" />
+  <Project Path="ex3p3/ex3p3.vcxproj" Id="f8785161-b55f-46e8-983c-aad48ad67198" />
+  <Project Path="ex4p2/ex4p2.vcxproj" Id="9e5c7e70-3073-464b-90b8-10025724a7b0" />
+</Solution>
