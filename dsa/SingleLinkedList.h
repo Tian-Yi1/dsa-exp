@@ -4,6 +4,8 @@
 #include <stdexcept>
 #include <iterator>
 #include <initializer_list>
+#include <string>
+#include <sstream>
 #include "globalFunc.h"
 using namespace std;
 //==================================SLNode==================================
@@ -260,7 +262,7 @@ public:
 		return (_count == 0)&&(_head->next() == nullptr);
 	}
 
-	void push_back(const T& val) {
+	void push_back(const T& val) {//尾部插入
 		SLNode<T>* pnewNode = new SLNode<T>(val);
 		SLNode<T>* p = _head;
 		while (p->next()!= nullptr) {
@@ -270,7 +272,7 @@ public:
 		++_count;
 	}
 
-	void push_front(const T& val) {
+	void push_front(const T& val) {//头部插入
 		SLNode<T>* pnewNode = new SLNode<T>(val);
 		pnewNode->changeNext(_head->next());
 		_head->changeNext(pnewNode);
@@ -304,6 +306,27 @@ public:
 		return *it;
 	}
 
+	SLNode*& findNode(int a) {//查找第i个节点(i>=0)
+		if (a < 0 || a > _count) {
+			throw out_of_range("查找越界");
+		}
+		SLNode<T>* p = _head->next();
+		for (int i = 0;i < a;++i) {
+			p = p->next();
+		}
+		return p;
+	}
+	const SLNode* findNode(int a) const {//查找第i个节点(i>=0)
+		if (a < 0 || a > _count) {
+			throw out_of_range("查找越界");
+		}
+		SLNode<T>* p = _head->next();
+		for (int i = 0;i < a;++i) {
+			p = p->next();
+		}
+		return p;
+	}
+
 	void show() {
 		SLNode<T>* p = _head->next();
 		if (p == nullptr) {
@@ -315,6 +338,75 @@ public:
 		}
 	}
 
+	string str(bool needTypeName = false) const {//返回字符串
+		ostringstream oss;
+		if (needTypeName)
+			oss << "SLinkedList:";
+		SLNode<T>* q = _head->next();
+		while (q != nullptr) {
+			oss << q->item() << ' ';
+			q = q->next();
+		}
+		return oss.str();
+	}
+
+	void insert(int i, const T& k) {//第i个位置插入元素(第i个变成新元素)
+		if (i < 0 || i > _count) {
+			throw out_of_range("插入越界");
+		}
+		if (i == 0) {
+			push_front(k);
+		}
+		else if (i == _count ) {
+			push_back(k);
+		}
+		else {
+			SLNode<T>* p = new SLNode<T>(k);
+			SLNode<T>*& q = findNode(i - 1);
+			p->changeNext(q->next());
+			q->changeNext(p);
+			++_count;
+		}
+	}
+
+	bool removeAnItem(int index) {//remove the node with input index
+		if (index < 0 || index >= _count) {
+			throw out_of_range("删除越界");
+		}
+		SLNode<T>* p;
+		if (index == 0) {
+			p = _head;
+		}
+		else if (index == _count-1) {
+			pop_back();
+			return true;
+		}
+		else {
+			p = findNode(index - 1);
+		}
+		SLNode<T>* q = p->next();
+		p->changeNext(q->next());
+		delete q;
+		--_count;
+		return true;
+	}
+
+	bool removeTheFirstItem(const T& k) {//删除表中第一个值为k的节点
+		SLNode<T>* p = _head->next();
+		int i = 0;
+		for (;p != nullptr;++i) {
+			if (p->item() == k)
+				break;
+			p = p->next();
+		}
+		if (p == nullptr) {
+			return false;
+		}
+		removeAnItem(i);
+		return true;
+	}
+
+	
 };
 
 template <typename T>
