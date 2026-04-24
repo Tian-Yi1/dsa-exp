@@ -12,3 +12,13 @@ void dispose(Itr begin,TII head) {
 	}
 	delete head;
 }
+template <std::input_iterator Itr, typename TII>
+void dispose(Itr begin) {
+	Itr q = begin;
+	Itr p;
+	while (q != Itr{}) {
+		p = q;
+		++q;
+		delete p;
+	}
+}

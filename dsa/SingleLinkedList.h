@@ -7,7 +7,6 @@
 #include <string>
 #include <sstream>
 #include "globalFunc.h"
-using namespace std;
 //==================================SLNode==================================
 
 //单个数据类SLNode
@@ -20,18 +19,18 @@ public:
 //==================================公有函数==================================
 
 	//数据接口
-	const SLNode<T> item() {
+	const T item() {
 		return item;
 	}
 	//修改item
 	void changeItem(T newItem) {
 		item = newItem;
 	}
-	SLNode<T>& item() {
+	T& item() {
 		return item;
 	}
 	//指针接口
-	const SLNode<T>* next() {
+	const SLNode<T>* next() const{
 		return next;
 	}
 	SLNode<T>*& next() {
@@ -180,7 +179,7 @@ public:
 	}
 
 	//以容器构造
-	template <input_iterator Itr>
+	template <std::input_iterator Itr>
 	SLinkedList(Itr first, Itr end) :SLinkedList(){
 		for (Itr i = first; i != end;++i) {
 			push_back(*i);
@@ -188,18 +187,14 @@ public:
 	}
 
 	//委托构造
-	SLinkedList(initializer_list<T> init) :SLinkedList(init.begin(), init.end()) {}
+	SLinkedList(std::initializer_list<T> init) :SLinkedList(init.begin(), init.end()) {}
 
 	//以数组构造
 	SLinkedList(const T* first, int cnt) {
 		_count = cnt > 0 ? cnt : 1;
 		_head = new SLNode<T>();
-		SLNode<T>* rear=_head;
-		SLNode<T>* q;
-		for (int i = 0, i < cnt, i++) {
-			q = new SLNode<T>(first[i]);
-			rear->next() = q;
-			rear = q;
+		for (int i = 0; i < cnt; i++) {
+			push_back(first[i]);
 		}
 	}
 
@@ -214,7 +209,7 @@ public:
 	//重载赋值
 	const SLinkedList<T>& operator=(const SLinkedList& other) {
 		if(this!=&other){
-			::dispose(_head->next());
+			::dispose(begin());
 			_count = other._count;
 			_head->next() = makeLink(other);
 		}
@@ -297,7 +292,7 @@ public:
 			throw out_of_range("越界访问");
 		}
 
-		iterator it = begin();
+		const_iterator it = begin();
 
 		for (int i = 0;i < index;++i) {
 			++it;
@@ -306,40 +301,40 @@ public:
 		return *it;
 	}
 
-	SLNode*& findNode(int a) {//查找第i个节点(i>=0)
+	SLNode<T>*& findNode(int a) {//查找第i个节点(i>=0)
 		if (a < 0 || a > _count) {
 			throw out_of_range("查找越界");
 		}
-		SLNode<T>* p = _head->next();
+		SLNode<T>* p = _head;
 		for (int i = 0;i < a;++i) {
 			p = p->next();
 		}
-		return p;
+		return p->next();
 	}
-	const SLNode* findNode(int a) const {//查找第i个节点(i>=0)
+	const SLNode<T>* findNode(int a) const {//查找第i个节点(i>=0)
 		if (a < 0 || a > _count) {
 			throw out_of_range("查找越界");
 		}
-		SLNode<T>* p = _head->next();
+		SLNode<T>* p = _head;
 		for (int i = 0;i < a;++i) {
 			p = p->next();
 		}
-		return p;
+		return p->next();
 	}
 
 	void show() {
 		SLNode<T>* p = _head->next();
 		if (p == nullptr) {
-			cout << "null";
+			std::cout << "null";
 		}
 		while (p != nullptr) {
-			cout << p->item()<<' ';
+			std::cout << p->item()<<' ';
 			p = p->next();
 		}
 	}
 
-	string str(bool needTypeName = false) const {//返回字符串
-		ostringstream oss;
+	std::string str(bool needTypeName = false) const {//返回字符串
+		std::ostringstream oss;
 		if (needTypeName)
 			oss << "SLinkedList:";
 		SLNode<T>* q = _head->next();
@@ -410,7 +405,7 @@ public:
 };
 
 template <typename T>
-ostream& operator<< (ostream& os, const SLinkedList<T>& rhs) {
+std::ostream& operator<< (std::ostream& os, const SLinkedList<T>& rhs) {
 	os << "SLinkedList:";
 	if (!rhs.empty()) {
 		typename SLinkedList<T>::const_iterator it = rhs.begin();
