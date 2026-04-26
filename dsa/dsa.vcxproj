@@ -31,8 +31,11 @@
     <ClInclude Include="Student.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="BaseList.cpp" />
+    <ClCompile Include="CircularLinkedList_ex4p6.cpp" />
     <ClCompile Include="CStu.cpp" />
     <ClCompile Include="dsaUtils.cpp" />
+    <ClCompile Include="Mystack.cpp" />
     <ClCompile Include="SequencedList.cpp" />
     <ClCompile Include="SingleLinkedList.cpp" />
     <ClCompile Include="SortAlgorithms.cpp" />

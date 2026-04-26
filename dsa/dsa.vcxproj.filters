@@ -65,5 +65,14 @@
     <ClCompile Include="SingleLinkedList.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="BaseList.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="CircularLinkedList_ex4p6.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Mystack.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

@@ -38,8 +38,15 @@ private:
 	}
 	//缩容函数
 	void shrink() {
-		if (capacity > size && capacity > LCapacity) {
-			capacity = max(size, LCapacity);
+		if (size <= capacity / 4 && capacity > LCapacity) {
+			int newCap = max(size, LCapacity);
+			T* newData = new T[newCap];
+			for (int i = 0; i < size; i++) {
+				newData[i] = name[i];
+			}
+			delete[] name;
+			name = newData;
+			capacity = newCap;
 		}
 	}
 public:
@@ -279,7 +286,7 @@ public:
 
 	//反转顺序表
 	void reverse() {
-		int temp = 0;
+		T temp = 0;
 		for (int i = 0;i < size/2;i++) {
 			temp = name[i];
 			name[i] = name[size - 1 - i];
@@ -303,7 +310,7 @@ public:
 		shrink();
 	}
 	//截取子表
-	SequencedList<T>& subList(int fromIndex, int toIndex) const {
+	SequencedList<T> subList(int fromIndex, int toIndex) const {
 		if (fromIndex < 0 || toIndex > size || fromIndex > toIndex) {
 			throw std::out_of_range("子表索引越界");
 		}
