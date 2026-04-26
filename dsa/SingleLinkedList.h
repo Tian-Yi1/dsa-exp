@@ -7,6 +7,7 @@
 #include <string>
 #include <sstream>
 #include "globalFunc.h"
+#include "BaseList.h"
 
 // Forward declarations to allow making operator<< a friend without shadowing template parameters
 template <typename T> class SLinkedList;
@@ -64,7 +65,7 @@ public:
 
 //链表类SLinkedList
 template <typename T>
-class SLinkedList {
+class SLinkedList : public IList<T> {
 private:
     SLNode<T>* _head;                //头节点(无效数据)
     unsigned int _count;            //表长度
@@ -173,7 +174,7 @@ public:
         _head = newHead;
     }
 
-    const unsigned int size() const{
+    unsigned int size() const override{
         return _count;
     }
     const unsigned int count() const{
@@ -267,11 +268,11 @@ public:
     // 基础功能
     // ==============================
 
-    bool empty() const {
+    bool empty() const override{
         return (_count == 0)&&(_head->next() == nullptr);
     }
 
-    void push_back(const T& val) {//尾部插入
+    void push_back(const T& val) override {//尾部插入
         SLNode<T>* pnewNode = new SLNode<T>(val);
         SLNode<T>* p = _head;
         while (p->next()!= nullptr) {
@@ -281,14 +282,14 @@ public:
         ++_count;
     }
 
-    void push_front(const T& val) {//头部插入
+    void push_front(const T& val) override {//头部插入
         SLNode<T>* pnewNode = new SLNode<T>(val);
         pnewNode->changeNext(_head->next());
         _head->changeNext(pnewNode);
         ++_count;
     }
 
-    T& operator[](unsigned int index) {
+    T& operator[](unsigned int index) override {
         if (index < 0 || index >= _count) {
             throw std::out_of_range("越界访问");
         }
@@ -301,7 +302,7 @@ public:
 
         return *it;
     }
-    const T& operator[](unsigned int index) const{
+    const T& operator[](unsigned int index) const override {
         if (index < 0 || index >= _count) {
             throw std::out_of_range("越界访问");
         }
@@ -359,7 +360,7 @@ public:
         return oss.str();
     }
 
-    void insert(int i, const T& k) {//第i个位置插入元素(第i个变成新元素)
+    void insert(int i, const T& k) override{//第i个位置插入元素(第i个变成新元素)
         if (i < 0 || i > _count) {
             throw std::out_of_range("插入越界");
         }
@@ -466,7 +467,7 @@ public:
         _count += other._count;
     }
 
-    void pop_back() {//尾部删除
+    void pop_back() override {//尾部删除
         if (empty()) {
             throw std::out_of_range("空表无法删除");
         }
@@ -481,6 +482,18 @@ public:
         --_count;
     }
 
+    void pop_front() override { 
+        removeAnItem(0); 
+    }
+
+    bool removeAt(unsigned int index) override {
+        if (index >= size()) return false;
+        return removeAnItem(index);
+    }
+
+    void print(std::ostream& os = std::cout) const override {
+        os << *this;
+    }
 
 };
 

@@ -36,6 +36,12 @@
     <ClInclude Include="globalFunc.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="BaseList.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="CircularLinkedList_ex4p6.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dsaUtils.cpp">
