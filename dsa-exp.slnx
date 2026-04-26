@@ -57,4 +57,7 @@
     <BuildDependency Project="dsa/dsa.vcxproj" />
   </Project>
   <Project Path="ex5p1/ex5p1.vcxproj" Id="32ca4293-dd4e-4c14-847c-4315cc3f5f8c" />
+  <Project Path="ex5p3/ex5p3.vcxproj" Id="3571e5fc-9d9b-49b9-9c1c-6c2a658c5ffb">
+    <BuildDependency Project="dsa/dsa.vcxproj" />
+  </Project>
 </Solution>
