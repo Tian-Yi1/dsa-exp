@@ -2,23 +2,23 @@
 #include <sstream>
 #include <string>
 #include <iostream>
-using namespace std;
+
 //CStu成员:_id,_name,_age,_score
 class CStu {
 private:
 	int _id;
-	string _name;
+	std::string _name;
 	float _age;
 	double _score;
 public:
 	//C++
-	CStu(int _id, string _name, float _age, double _score) :_name(move(_name)) {
+	CStu(int _id, std::string _name, float _age, double _score) :_name(std::move(_name)) {
 		this->_id = _id;
 		this->_age = _age;
 		this->_score = _score;
 	}
 	//C
-	CStu(int _id, const char* _name, float _age, double _score) :_name(move(_name)) {
+	CStu(int _id, const char* _name, float _age, double _score) :_name(std::move(_name)) {
 		this->_id = _id;
 		this->_age = _age;
 		this->_score = _score;
@@ -33,7 +33,7 @@ public:
 
 	}
 	//移动构造
-	CStu(CStu&& rhs) noexcept :_name(move(rhs._name)) {
+	CStu(CStu&& rhs) noexcept :_name(std::move(rhs._name)) {
 		_id = rhs._id;
 		_age = rhs._age;
 		_score = rhs._score;
@@ -44,7 +44,7 @@ public:
 			_id = rhs._id;
 			_age = rhs._age;
 			_score = rhs._score;
-			_name = move(rhs._name);
+			_name = std::move(rhs._name);
 		}
 		return *this;
 	}
@@ -61,11 +61,11 @@ public:
 	int& id() {
 		return _id;
 	}
-	string name() const {
+	std::string name() const {
 		return _name;
 	}
 	//可以写stu1.name()="newName"修改成员
-	string& name() {
+	std::string& name() {
 		return _name;
 	}
 	float age() const {
@@ -81,7 +81,7 @@ public:
 		return _score;
 	}
 	//提供一种简便修改接口
-	void setName(const string& newName) {
+	void setName(const std::string& newName) {
 		this->_name = newName;
 	}
 	void setId(const int& newId) {
@@ -95,13 +95,13 @@ public:
 	}
 	//拼接并输出单个类信息，利用输出流存储，输出到控制台（cout）
 	void get() const {
-		ostringstream oss;
+		std::ostringstream oss;
 		oss << "学生姓名:" << _name << "    年龄:" << _age << "    学号：" << _id << "    成绩：" << _score;
-		cout << oss.str();
+		std::cout << oss.str();
 	}
 	//返回流,cout<<str();
-	string str() const {
-		ostringstream oss;
+	std::string str() const {
+		std::ostringstream oss;
 		oss << _id << '-' << _name << '-' << _age << '-' << _score;
 		return oss.str();
 	}
@@ -109,5 +109,5 @@ public:
 
 	}
 	//声明<<友元，实现在.cpp中
-	friend ostream& operator<<(ostream& os, const CStu& stu1);
+	friend std::ostream& operator<<(std::ostream& os, const CStu& stu1);
 };

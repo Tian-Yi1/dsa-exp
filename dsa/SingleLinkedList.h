@@ -70,6 +70,7 @@ private:
     unsigned int _count;            //表长度
 public:
     // Make the templated operator<< a friend without introducing a new template parameter named T
+	template <typename T>
     friend std::ostream& operator<< (std::ostream& os, const SLinkedList<T>& rhs);
 //================================== STL 前向迭代器==================================
 
