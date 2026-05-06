@@ -2,11 +2,7 @@
 #include <iterator>
 #include <type_traits>
 
-// 全局函数::dispose,用于单项链表,释放由begin开始的链表
-// 适配多种 iterator/指针 表现：
-// - 如果传入的是原始指针（node*），直接 delete
-// - 否则尝试使用 operator-> / base() / get() / node 成员来取得可删除的原始指针
-// 若无法取得可删除指针，会在编译时报错，提示无法释放该迭代器类型
+
 namespace dsa_detail {
 	template <typename Itr>
 	auto get_deletable_ptr(Itr p) {
@@ -25,7 +21,11 @@ namespace dsa_detail {
 		}
 	}
 }
-
+// 全局函数::dispose,用于单项链表,释放由begin开始的链表
+// 适配多种 iterator/指针 表现：
+// - 如果传入的是原始指针（node*），直接 delete
+// - 否则尝试使用 operator-> / base() / get() / node 成员来取得可删除的原始指针
+// 若无法取得可删除指针，会在编译时报错，提示无法释放该迭代器类型
 // 带 head 参数的版本
 template <std::input_iterator Itr, typename TII>
 void dispose(Itr begin, TII head) {
@@ -39,8 +39,8 @@ void dispose(Itr begin, TII head) {
 	}
 	delete head;
 }
-
-// 不带 head 参数的版本
+//@overload
+//不带 head 参数的版本
 template <std::input_iterator Itr, typename TII>
 void dispose(Itr begin) {
 	Itr q = begin;

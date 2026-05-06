@@ -10,18 +10,18 @@ namespace StudentUtils {
 	*@details 包含ID、Name、Age、Score、IDD、NameD、AgeD、ScoreD等成员，分别表示按照学号、姓名、年龄、成绩升序和降序排序的比较规则
 	*/
 	enum class CompareKey {
-	ID,Name,Age,Score,IDD,NameD,AgeD,ScoreD
+		ID,///<按照学号升序排序
+		Name,///<按照姓名升序排序
+		Age,///<按照年龄升序排序
+		Score,///<按照成绩升序排序
+		IDD,///<按照学号降序排序
+		NameD,///<按照姓名降序排序
+		AgeD,///<按照年龄降序排序
+		ScoreD///<按照成绩降序排序
 	};
 	/**
 	*@brief 比较函数
-	*@param ID 学生的学号
-	*@param Name 学生的姓名
-	*@param Age 学生的年龄
-	*@param Score 学生的成绩
-	*@param IDD 学生的学号降序
-	*@param NameD 学生的姓名降序
-	*@param AgeD 学生的年龄降序
-	*@param ScoreD 学生的成绩降序
+	*@param k 比较规则的枚举值，默认为CompareKey::ID，即按照学号升序排序
 	*@return 返回一个std::function对象，表示根据参数k的值定义的数据元素的比较规则
 	*@warning 该函数返回的比较规则仅适用于CStu类型的对象，且需要保证CStu类中已经定义了相应的成员函数（如id()、name()、age()、score()等）以供比较使用
 	*/
