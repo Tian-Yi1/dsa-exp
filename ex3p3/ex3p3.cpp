@@ -13,27 +13,27 @@ int main() {
     srand(time(0));
     const int N = 8;
     int arr[N];
-    RandomData(arr, N);
-    Show(arr, N);
+    dsaUtils::RandomData(arr, N, rand());
+    dsaUtils::Show(arr, N);
     int temp[N]; 
     // ≤‚ ‘≤Â»Î≈≈–Ú
     copyArray(arr, temp, N);
-    insertSort(temp, N);
+    sort::insertSort(temp, N);
     cout << "-------------------------" << endl;
 
     // ≤‚ ‘√∞≈›≈≈–Ú
     copyArray(arr, temp, N);
-    bubbleSort(temp, N);
+    sort::bubbleSort(temp, N);
     cout << "-------------------------" << endl;
 
     // ≤‚ ‘—°‘Ò≈≈–Ú
     copyArray(arr, temp, N);
-    selectSort(temp, N);
+    sort::selectSort(temp, N);
     cout << "-------------------------" << endl;
 
     // ≤‚ ‘øÏÀŸ≈≈–Ú
     copyArray(arr, temp, N);
-    quickSort(temp, N);
+    sort::quickSort(temp, N);
     cout << "-------------------------" << endl;
 
     return 0;

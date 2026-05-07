@@ -29,6 +29,7 @@
     <ClInclude Include="SingleLinkedList.h" />
     <ClInclude Include="SortAlgorithms.h" />
     <ClInclude Include="Student.h" />
+    <ClInclude Include="StudentUtils.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BaseList.cpp" />
