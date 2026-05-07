@@ -3,8 +3,8 @@
 #include <cstdlib>
 #include <string>
 #include "dsaUtils.h"
-using namespace std;
-void RandomData(int* a, int b, unsigned int seed, int minValue, int maxValue) {
+
+void dsaUtils::RandomData(int* a, int b, unsigned int seed, int minValue, int maxValue) {
 	srand(seed);
 	int u = 0;
 	for (int i = 0; i < b; i++) {
