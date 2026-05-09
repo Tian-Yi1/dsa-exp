@@ -12,9 +12,9 @@ int main() {
         Robot(103, "Delta", 135.2),
         Robot(104, "Epsilon", 110.0)
     };
-    Show(robots, robots + SIZE);
+    dsaUtils::Show(robots, robots + SIZE);
     sort(robots, robots + SIZE, cmpByID);
-    Show(robots, robots + SIZE);
+    dsaUtils::Show(robots, robots + SIZE);
     sort(robots, robots + SIZE, cmpByIQ);
-    Show(robots, robots + SIZE);
+    dsaUtils::Show(robots, robots + SIZE);
 }
