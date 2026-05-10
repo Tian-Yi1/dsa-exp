@@ -8,7 +8,7 @@
 	*/
 namespace sort {
 	// 交换两数
-	template <typename T>
+	/*template <typename T>
 	void swap(T& a, T& b) {
 		T temp = a;
 		a = b;
@@ -20,7 +20,7 @@ namespace sort {
 		* @param n 数组长度
 		* @param comp 可选的比较函数对象，默认为 std::less<T>，表示升序排序
 		*/
-	template <typename T, typename Compare = std::less<T>>
+		/*template <typename T, typename Compare = std::less<T>>
 	void insertSort(T arr[], int n, Compare comp = Compare()) {
 		for (int i = 1; i < n; i++) {
 			T key = arr[i];///<存储当前元素
@@ -38,7 +38,7 @@ namespace sort {
 	* @param end 结束迭代器
 	* @param comp 可选的比较函数对象，默认为 std::less<T>，表示升序排序
 	*/
-	template<std::input_iterator T, typename Compare = std::less<T>>
+	/*template<std::input_iterator T, typename Compare = std::less<T>>
 	void insertSort(T begin, T end, Compare comp = Compare()) {
 		for (T i = begin;i != end;++i) {
 			auto key = *i;///<存储当前元素
@@ -56,7 +56,7 @@ namespace sort {
 	* @param n 数组长度
 	* @param comp 可选的比较函数对象，默认为 std::less<T>，表示升序排序
 	*/
-	template<typename T, typename Compare = std::less<T>>
+	/*template<typename T, typename Compare = std::less<T>>
 	void shellSort(T arr[], int n, Compare comp = Compare()) {
 		int jump = n / 2;
 		while (jump > 0) {
@@ -77,7 +77,7 @@ namespace sort {
 	* @param end 结束迭代器
 	* @param comp 可选的比较函数对象，默认为 std::less<T>，表示升序排序
 	*/
-	template<std::input_iterator T, typename Compare = std::less<T>>
+	/*template<std::input_iterator T, typename Compare = std::less<T>>
 	void shellSort(T begin, T end, Compare comp = Compare()) {
 		int n = (int)(end - begin);
 		int jump = n / 2;
@@ -94,7 +94,7 @@ namespace sort {
 		dsaUtils::Show(begin, end);
 	}
 	//  冒泡排序
-	void bubbleSort(int arr[], int n) {
+	/*void bubbleSort(int arr[], int n) {
 		for (int i = 0; i < n - 1; i++) {
 			bool flag = false;
 			for (int j = 0; j < n - i - 1; j++) {
@@ -145,5 +145,5 @@ namespace sort {
 
 		quickSort(arr, left, i - 1);
 		quickSort(arr, i + 1, right);
-	}
+	}*/
 }

@@ -7,7 +7,7 @@
 * @tparam T 排序元素的类型
 * @tparam Compare 可选的比较函数对象类型，默认为 std::less<T>，表示升序排序
 */
-namespace sort {
+/*namespace sort {
 	// 交换两数
 	template<typename T>
 	void swap(T& a, T& b);
@@ -17,7 +17,7 @@ namespace sort {
 		* @param n 数组长度
 		* @param comp 可选的比较函数对象，默认为 std::less<T>，表示升序排序
 		*/
-	template<typename T, typename Compare = std::less<T>>
+	/*template<typename T, typename Compare = std::less<T>>
 	void insertSort(T arr[], int n, Compare comp = Compare());
 		/*@overload
 		* @brief 直接插入排序，适用于迭代器范围
@@ -25,14 +25,14 @@ namespace sort {
 		* @param end 结束迭代器
 		* @param comp 可选的比较函数对象，默认为 std::less<T>，表示升序排序
 		*/
-	template<std::input_iterator T, typename Compare = std::less<T>>
+		/*template<std::input_iterator T, typename Compare = std::less<T>>
 	void insertSort(T begin, T end, Compare comp = Compare());
 		/*@brief 希尔排序
 		* @param arr 待排序数组
 		* @param n 数组长度
 		* @param comp 可选的比较函数对象，默认为 std::less<T>，表示升序排序
 		*/
-	template<typename T, typename Compare = std::less<T>>
+		/*template<typename T, typename Compare = std::less<T>>
 	void shellSort(T arr[], int n, Compare comp = Compare());
 		/*@overload
 		* @brief 希尔排序，适用于迭代器范围
@@ -40,14 +40,14 @@ namespace sort {
 		* @param end 结束迭代器
 		* @param comp 可选的比较函数对象，默认为 std::less<T>，表示升序排序
 		*/
-	template<std::input_iterator T, typename Compare = std::less<T>>
+		/*template<std::input_iterator T, typename Compare = std::less<T>>
 	void shellSort(T begin, T end, Compare comp = Compare());
 		/*@brief 冒泡排序
 		* @param arr 待排序数组
 		* @param n 数组长度
 		* @param comp 可选的比较函数对象，默认为 std::less<T>，表示升序排序
 		*/
-	template<typename T, typename Compare = std::less<T>>
+		/*template<typename T, typename Compare = std::less<T>>
 	void bubbleSort(T arr[], int n, Compare comp = Compare());
 		/*@overload
 		* @brief 冒泡排序，适用于迭代器范围
@@ -55,7 +55,7 @@ namespace sort {
 		* @param end 结束迭代器
 		* @param comp 可选的比较函数对象，默认为 std::less<T>，表示升序排序
 		*/
-	template<std::input_iterator T, typename Compare = std::less<T>>
+		/*template<std::input_iterator T, typename Compare = std::less<T>>
 	void bubbleSort(T begin, T end, Compare comp = Compare());
 
 	//  选择排序
@@ -68,4 +68,4 @@ namespace sort {
 	// 快速排序递归实现
 	template<typename T>
 	void quickSort(T arr[], int left, int right);
-}
+}*/

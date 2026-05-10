@@ -73,4 +73,13 @@
   <Project Path="ex6p1/ex6p1.vcxproj" Id="91f62ec9-8bc3-4829-8183-523f6b592ee8">
     <BuildDependency Project="dsa/dsa.vcxproj" />
   </Project>
+  <Project Path="ex6p3/ex6p3.vcxproj" Id="92a39c60-57ca-43d9-b8aa-21939f1cd2d3">
+    <BuildDependency Project="dsa/dsa.vcxproj" />
+  </Project>
+  <Project Path="ex6p4/ex6p4.vcxproj" Id="050a1e2c-f82e-4a8e-8eb7-dcf03d797fb3">
+    <BuildDependency Project="dsa/dsa.vcxproj" />
+  </Project>
+  <Project Path="ex6p5/ex6p5.vcxproj" Id="701e7722-c151-4fa2-a16a-4452bd6f9bc6">
+    <BuildDependency Project="dsa/dsa.vcxproj" />
+  </Project>
 </Solution>

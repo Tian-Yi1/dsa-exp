@@ -48,6 +48,12 @@
     <ClInclude Include="StudentUtils.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="SequencedQueue.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="LinkedQueue.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dsaUtils.cpp">
@@ -75,6 +81,12 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="Mystack.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="SequencedQueue.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="LinkedQueue.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
